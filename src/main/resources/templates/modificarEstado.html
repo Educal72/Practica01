@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Paises</title>
+        <meta charset="UTF-8"/>   
+        <link href="css/estilos1.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Informacion de Estados</h2>
+        <a th:href="@{/}">Regresar</a>
+        <hr/>
+        <form th:action="@{/estado/guardar}" method="post" th:object="${estado}">          
+            <input type="hidden" name="idPais" th:field="*{idPais}">
+        <fieldset>
+            <label for="nombre">Nombre Pais</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+        </fieldset>
+        <fieldset>
+            <label for="poblacion">Poblacion</label>
+            <input type="number" name="poblacion" th:field="*{poblacion}"/>
+        </fieldset>
+        <fieldset>
+            <label for="capital">Capital</label>
+            <input type="text" name="capital" th:field="*{capital}"/>
+        </fieldset>
+        <fieldset>
+            <label for="costas">Costas</label>
+            <input type="number" name="costas" th:field="*{costas}"/>
+        </fieldset>
+        <fieldset>
+            <label for="continente">Continente</label>
+            <input type="text" name="continente" th:field="*{continente}"/>
+        </fieldset>
+            <hr/>
+            <input type="submit" value="Guardar" name="guardar"/>
+        </form>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
+

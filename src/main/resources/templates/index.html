@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Paises</title>
+        <meta charset="UTF-8"/>
+        <link href="css/estilos1.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Información de Paises del Mundo</h2>
+        <a th:href="@{/estado/nuevo}">Nuevo Estado</a>
+        <div th:if="${estados!=null and !estados.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Pais</th>
+                    <th>Poblacion</th>
+                    <th>Capital</th>
+                    <th>Costas</th>
+                    <th>Continentes</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr th:each="estado : ${estados}">
+                    <td>[[${estado.idPais}]]</td>
+                    <td>[[${estado.nombre}]]</td>
+                    <td>[[${estado.poblacion}]]</td>
+                    <td>[[${estado.capital}]]</td>
+                    <td>[[${estado.costas}]]</td>
+                    <td>[[${estado.continente}]]</td>
+                    <td><a th:href="@{/estado/modificar/} + ${estado.idPais}"/>Modificar</td>
+                    <td><a th:href="@{/estado/eliminar/} + ${estado.idPais}"/>Eliminar</td>
+                </tr>           
+            </table>
+        </div>
+
+        <div th:if="${estados==null or estados.empty}">
+            <h2>No hay estados que mostrar</h2>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
