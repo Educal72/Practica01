@@ -38,4 +38,5 @@ public class Estado implements Serializable {
         this.costas = costas;
         this.continente = continente;
     }
+   //Practica 01dada
 }

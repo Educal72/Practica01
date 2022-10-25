@@ -18,3 +18,4 @@ public interface EstadoService {
     public void delete(Estado estado);
     
 }
+//Practica 01adad
